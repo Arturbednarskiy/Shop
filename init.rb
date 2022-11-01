@@ -1,15 +1,5 @@
-# Dir['*.rb'].each { |file| require_relative file }
-
-require_relative 'item'
-require_relative 'cart'
-require_relative 'order'
-require_relative 'virtual_item'
-require_relative 'real_item'
-require_relative 'item_container'
-require_relative 'string'
-require_relative 'antique_item'
-require 'active_support/all'
-
+require_relative 'store_application'
+StoreApplication.new
 
 @items = []
 
