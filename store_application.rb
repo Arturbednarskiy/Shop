@@ -1,8 +1,11 @@
 # Missing frozen string literal comment.
 class StoreApplication
   class << self
-    def new
+    attr_accessor :name, :environment
+
+    def set
       unless @store
+        yield self
         puts 'loadind classes'
         require_relative 'item'
         require_relative 'cart'
@@ -14,8 +17,24 @@ class StoreApplication
         require_relative 'antique_item'
         require 'active_support/all'
       end
-
       @store ||= self
+    end
+
+    def admin(&block)
+      @admin ||= Admin.new(&block)
+    end
+
+    class Admin
+      class << self
+        attr_accessor :email, :login
+
+        def new
+          unless @store
+            yield(self)
+          end
+          @store ||= self
+        end
+      end
     end
   end
 end

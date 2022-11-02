@@ -1,5 +1,14 @@
 require_relative 'store_application'
-StoreApplication.new
+
+StoreApplication.set do |app|
+  app.name        = 'Ruby App'
+  app.environment = :develoment
+
+  app.admin do |admin|
+    admin.email = 'admin@mail.com'
+    admin.login = 'admin'
+  end
+end
 
 @items = []
 
