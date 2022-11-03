@@ -5,7 +5,8 @@ StoreApplication.set do |app|
   app.environment = :develoment
 
   app.admin do |admin|
-    admin.email = 'admin@mail.com'
+    admin.email = 'some@mail.com'
+    admin.pass  = 'some_password'
     admin.login = 'admin'
   end
 end

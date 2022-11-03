@@ -16,6 +16,7 @@ class StoreApplication
         require_relative 'string'
         require_relative 'antique_item'
         require 'active_support/all'
+        require 'pony'
       end
       @store ||= self
     end
@@ -26,7 +27,7 @@ class StoreApplication
 
     class Admin
       class << self
-        attr_accessor :email, :login
+        attr_accessor :email, :login, :pass
 
         def new
           unless @store
