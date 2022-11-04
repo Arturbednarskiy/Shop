@@ -29,3 +29,9 @@ cart.add_item(RealItem.new({ price: 555, weight: 666, name: 'car' }))
 cart.add_item(RealItem.new({ price: 555, weight: 666, name: 'bike' }))
 
 p cart.send :all_cars
+
+order = Order.new
+order.place
+
+p order.placed_at.strftime('%b %-d')
+p order.end_sending
