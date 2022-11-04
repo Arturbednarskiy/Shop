@@ -20,7 +20,7 @@ end
 
 @items << VirtualItem.new(name: 'virt', price: 111, weight: 222)
 @items << AntiqueItem.new(name: 'ant', price: 331, weight: 441)
-@items << RealItem.new(name: 'car', price: 333, weight: 444)
+@items << RealItem.new(name: 'car', price: 300, weight: 444)
 @items << RealItem.new(name: 'bike', price: 555, weight: 666)
 
 cart = Cart.new('amg')
@@ -33,5 +33,3 @@ p cart.send :all_cars
 order = Order.new
 order.place
 
-p order.placed_at.strftime('%b %-d')
-p order.end_sending
