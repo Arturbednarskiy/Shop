@@ -5,10 +5,15 @@ StoreApplication.set do |app|
   app.environment = :develoment
 
   app.admin do |admin|
-    admin.email = 'some@mail.com'
-    admin.pass  = 'some_password'
+    admin.email = 'aigorovich41@mail.com'
+    admin.pass  = 'gcju wckz plte noro'
     admin.login = 'admin'
   end
+end
+
+unless StoreApplication.frozen?
+  StoreApplication.name = 'New name'
+  StoreApplication::Admin.email = 'new@admin.com'
 end
 
 @items = []

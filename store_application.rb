@@ -19,12 +19,14 @@ class StoreApplication
         require 'pony'
       end
       @store ||= self
+      @store.freeze
     end
 
     def admin(&block)
       @admin ||= Admin.new(&block)
     end
 
+    # StoreApplication::Admin
     class Admin
       class << self
         attr_accessor :email, :login, :pass
@@ -34,6 +36,7 @@ class StoreApplication
             yield(self)
           end
           @store ||= self
+          @store.freeze
         end
       end
     end
