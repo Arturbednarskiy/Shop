@@ -1,14 +1,13 @@
 # Missing frozen string literal comment.
 class Item
   attr_reader :real_price
-  attr_accessor :name, :price
+  attr_accessor :name
 
-  @@discount = 0.1
+  @@discount = 0.01
 
   def initialize(name, options = {})
     @real_price = options[:price]
-    @price = options[:price]
-    @name  = name
+    @name = name
   end
 
   def info
@@ -21,8 +20,8 @@ class Item
   end
 
   def self.discount
-    if Time.now.month == 6
-      @@discount += 0.3
+    if Time.now.month == 5
+      @@discount += 0.03
     else
       @@discount
     end
@@ -35,7 +34,16 @@ class Item
   end
 
   def to_s
-    "#{self.name}:#{self.price}:#{self.weight}"
+    "#{self.name}:#{self.price}"
+  end
+
+  def price=(value)
+    @real_price = value
+  end
+
+  def self.show_info_about(attribute, block)
+    @@show_info_about ||= {}
+    @@show_info_about[:weight] = block
   end
 
   private

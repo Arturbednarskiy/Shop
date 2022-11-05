@@ -2,14 +2,17 @@
 module ItemContainer
 
   module ClassMethods
+    MIN_PRICE = 5
     def min_price
-      100
+      MIN_PRICE
     end
   end
 
   module InstanceMethods
-    def add_item(item)
-      @items.push item unless item.price < self.class.min_price
+    attr_reader :items
+
+    def add_item(*items)
+      @items += items
     end
 
     def remove_item
